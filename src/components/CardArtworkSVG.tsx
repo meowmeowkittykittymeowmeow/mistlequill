@@ -7,6 +7,8 @@ import {
   ColorOption,
   FRAME_COLORS,
   GARLAND_COLORS,
+  GIFT_COLORS,
+  SKIRT_COLORS,
   TOPPER_COLORS,
   TREE_COLORS,
 } from '../types/card';
@@ -291,6 +293,10 @@ export function CardArtworkSVG({ config, svgRef, interactive = true }: CardArtwo
   const garlandPalette = findColor(GARLAND_COLORS, config.garlandColor);
   const topperPalette = findColor(TOPPER_COLORS, config.topperColor);
   const framePalette = findColor(FRAME_COLORS, config.frameColor);
+  const skirtPalette =
+    SKIRT_COLORS.find((s) => s.id === config.treeExtras.skirtColor) || SKIRT_COLORS[0];
+  const giftPalette =
+    GIFT_COLORS.find((g) => g.id === config.treeExtras.giftColor) || GIFT_COLORS[0];
 
   const isOval = config.frameStyle === 'scalloped-oval';
   const treeScale = isOval ? 0.72 : 0.94;
@@ -731,22 +737,22 @@ export function CardArtworkSVG({ config, svgRef, interactive = true }: CardArtwo
             <g filter="url(#wc-paint)">
               <path
                 d="M 168,450 Q 170,478 190,472 Q 204,489 224,476 Q 248,495 274,478 Q 294,489 310,472 Q 332,478 334,450 Q 250,434 168,450 Z"
-                fill="#F2D8D9"
-                opacity="0.88"
+                fill={skirtPalette.fill}
+                opacity="0.9"
               />
               <path
                 d="M 184,454 Q 208,468 232,456 Q 252,472 278,458 Q 304,470 322,454"
                 fill="none"
-                stroke="#DFB6BA"
+                stroke={skirtPalette.fold}
                 strokeWidth="4"
-                opacity="0.5"
+                opacity="0.55"
               />
             </g>
-            {/* Loose crimson brush rim + ink folds */}
+            {/* Loose watercolor brush rim + ink folds */}
             <path
               d="M 168,450 Q 170,478 190,472 Q 204,489 224,476 Q 248,495 274,478 Q 294,489 310,472 Q 332,478 334,450"
               fill="none"
-              stroke="#B22F3D"
+              stroke={skirtPalette.trim}
               strokeWidth="2.4"
               strokeLinecap="round"
               filter="url(#wc-paint)"
@@ -1210,28 +1216,28 @@ export function CardArtworkSVG({ config, svgRef, interactive = true }: CardArtwo
   const renderGifts = () => (
     <g>
       <g transform="translate(132, 434) rotate(-2)">
-        <rect x="0" y="0" width="36" height="32" fill="#F2B8B8" opacity="0.86" filter="url(#wc-paint)" />
+        <rect x="0" y="0" width="36" height="32" fill={giftPalette.box1} opacity="0.88" filter="url(#wc-paint)" />
         <path d="M 0,1 L 36,0 L 35,32 L 1,31 Z" fill="none" stroke="#281F1C" strokeWidth="1.05" filter="url(#ink-nib)" />
-        <path d="M 18,-1 L 17,32 M -1,14 L 36,15" stroke="#B6303B" strokeWidth="3.2" opacity="0.85" />
-        <path d="M 18,0 C 11,-8 4,-4 10,0 M 18,0 C 25,-8 32,-4 26,0" fill="none" stroke="#9B212C" strokeWidth="1.5" />
+        <path d="M 18,-1 L 17,32 M -1,14 L 36,15" stroke={giftPalette.ribbonMain} strokeWidth="3.2" opacity="0.88" />
+        <path d="M 18,0 C 11,-8 4,-4 10,0 M 18,0 C 25,-8 32,-4 26,0" fill="none" stroke={giftPalette.bowMain} strokeWidth="1.5" />
       </g>
       <g transform="translate(158, 456) rotate(1.5)">
-        <rect x="0" y="0" width="44" height="24" fill="#F6D5D4" opacity="0.88" filter="url(#wc-paint)" />
+        <rect x="0" y="0" width="44" height="24" fill={giftPalette.box2} opacity="0.9" filter="url(#wc-paint)" />
         <path d="M 0,0 L 44,1 L 43,24 L 1,23 Z" fill="none" stroke="#281F1C" strokeWidth="1.05" filter="url(#ink-nib)" />
-        <path d="M 22,0 L 22,24" stroke="#B6303B" strokeWidth="3" opacity="0.85" />
-        <path d="M 22,0 C 16,-7 10,-4 15,0 M 22,0 C 28,-7 34,-4 29,0" fill="none" stroke="#9B212C" strokeWidth="1.4" />
+        <path d="M 22,0 L 22,24" stroke={giftPalette.ribbonMain} strokeWidth="3" opacity="0.88" />
+        <path d="M 22,0 C 16,-7 10,-4 15,0 M 22,0 C 28,-7 34,-4 29,0" fill="none" stroke={giftPalette.bowMain} strokeWidth="1.4" />
       </g>
 
       <g transform="translate(328, 444) rotate(2)">
-        <rect x="0" y="0" width="32" height="28" fill="#F0B7B9" opacity="0.88" filter="url(#wc-paint)" />
+        <rect x="0" y="0" width="32" height="28" fill={giftPalette.box3} opacity="0.9" filter="url(#wc-paint)" />
         <path d="M 0,1 L 32,0 L 31,28 L 1,27 Z" fill="none" stroke="#281F1C" strokeWidth="1.05" filter="url(#ink-nib)" />
-        <path d="M 16,0 L 16,28 M 0,12 L 32,12" stroke="#A62530" strokeWidth="3" opacity="0.85" />
-        <path d="M 16,0 C 10,-7 4,-3 10,0 M 16,0 C 22,-7 28,-3 22,0" fill="none" stroke="#8C1A24" strokeWidth="1.4" />
+        <path d="M 16,0 L 16,28 M 0,12 L 32,12" stroke={giftPalette.ribbonAlt} strokeWidth="3" opacity="0.88" />
+        <path d="M 16,0 C 10,-7 4,-3 10,0 M 16,0 C 22,-7 28,-3 22,0" fill="none" stroke={giftPalette.bowAlt} strokeWidth="1.4" />
       </g>
       <g transform="translate(298, 462) rotate(-1.5)">
-        <rect x="0" y="0" width="26" height="22" fill="#EADAC2" opacity="0.88" filter="url(#wc-paint)" />
+        <rect x="0" y="0" width="26" height="22" fill={giftPalette.box4} opacity="0.9" filter="url(#wc-paint)" />
         <path d="M 0,0 L 26,1 L 25,22 L 1,21 Z" fill="none" stroke="#281F1C" strokeWidth="1.05" filter="url(#ink-nib)" />
-        <path d="M 13,0 L 13,22" stroke="#4D6E52" strokeWidth="2.5" opacity="0.85" />
+        <path d="M 13,0 L 13,22" stroke={giftPalette.ribbonSmall} strokeWidth="2.5" opacity="0.88" />
       </g>
     </g>
   );
@@ -1381,7 +1387,7 @@ export function CardArtworkSVG({ config, svgRef, interactive = true }: CardArtwo
                 letterSpacing: '0.03em',
               }}
             >
-              — {config.signature.trim()}
+              {config.signature.trim()}
             </text>
           )}
         </g>

@@ -98,7 +98,7 @@ export async function exportCardToPng(
       ctx.globalAlpha = 0.82;
       ctx.font = `italic 400 ${13.5 * SCALE}px "Cormorant Garamond", Georgia, serif`;
       const sigY = yStart + Math.max(1, lines.length) * lineHeight + 8 * SCALE;
-      ctx.fillText(`— ${config.signature.trim()}`, WIDTH / 2, sigY);
+      ctx.fillText(config.signature.trim(), WIDTH / 2, sigY);
       ctx.globalAlpha = 1;
     }
 

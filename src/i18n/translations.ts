@@ -141,7 +141,7 @@ export interface Translations {
 export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     brand: 'Mistlequill',
-    docTitle: 'Mistlequill — Hand-Illustrated Christmas Card Maker',
+    docTitle: 'Mistlequill | Hand-Illustrated Christmas Card Maker',
     nav: {
       inspirations: 'Inspirations',
       studio: 'Studio',
@@ -222,7 +222,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Step 02 · Set of 3 Bauble Styles',
         title: 'Bauble shapes & colors',
         subtitle:
-          'Curate 3 distinct ornament types — all three will hang together harmoniously on your tree.',
+          'Curate 3 distinct ornament types - all three will hang together harmoniously on your tree.',
         slotPrefix: 'Type',
         shapeLabel: 'Bauble Shape',
         colorLabel: 'Watercolor Pigment',
@@ -241,7 +241,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Step 04 · Tree Topper',
         title: 'Crown your Christmas tree',
         subtitle:
-          'Select an heirloom topper variant — from a flowing watercolor bow to a Bethlehem star or vintage finial.',
+          'Select an heirloom topper variant - from a flowing watercolor bow to a Bethlehem star or vintage finial.',
         shapeLabel: 'Topper Design',
         colorLabel: 'Topper Color',
       },
@@ -365,14 +365,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'Wishing you a warm, merry & bright Christmas.',
       'May your holidays sparkle with peace, warmth, and timeless joy.',
       'Warmest wishes for a magical Christmas and a happy New Year.',
-      'merry & bright — sending love and festive cheer from afar.',
+      'merry & bright - sending love and festive cheer from afar.',
     ],
     defaultSignature: 'With warmest wishes',
   },
 
   pl: {
     brand: 'Mistlequill',
-    docTitle: 'Mistlequill — Kreator Kartek Świątecznych',
+    docTitle: 'Mistlequill | Kreator Kartek Świątecznych',
     nav: {
       inspirations: 'Inspiracje',
       studio: 'Kreator',
@@ -453,7 +453,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Krok 02 · Zestaw 3 rodzajów bombek',
         title: 'Kształty i barwy bombek',
         subtitle:
-          'Skomponuj 3 różne rodzaje ozdób — wszystkie trzy pojawią się równocześnie na choince.',
+          'Skomponuj 3 różne rodzaje ozdób - wszystkie trzy pojawią się równocześnie na choince.',
         slotPrefix: 'Rodzaj',
         shapeLabel: 'Kształt bombki',
         colorLabel: 'Kolor akwarelowy',
@@ -472,7 +472,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Krok 04 · Zwieńczenie drzewka',
         title: 'Ozdoba na szczyt choinki',
         subtitle:
-          'Wybierz wzór czubka — od malarskiej kokardy po klasyczną gwiazdę lub szpic vintage.',
+          'Wybierz wzór czubka - od malarskiej kokardy po klasyczną gwiazdę lub szpic vintage.',
         shapeLabel: 'Wariant zwieńczenia',
         colorLabel: 'Kolor ozdoby szczytowej',
       },
@@ -596,7 +596,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'Wesołych Świąt pełnych ciepła, światła i bliskich serc.',
       'Niech te Święta przyniosą spokój, zachwyt i najpiękniejsze wspomnienia.',
       'Magicznych Świąt Bożego Narodzenia oraz pomyślności w Nowym Roku.',
-      'merry & bright — najcieplejsze życzenia prosto z serca.',
+      'merry & bright - najcieplejsze życzenia prosto z serca.',
     ],
     defaultSignature: 'Z najcieplejszymi życzeniami',
   },

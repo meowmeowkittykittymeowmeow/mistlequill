@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Coffee, Download } from 'lucide-react';
+import { Coffee, Download, Shuffle } from 'lucide-react';
 import { musicPlayer } from './audio/christmasMusic';
 import { AtelierToolbar } from './components/AtelierToolbar';
 import { CardArtworkSVG } from './components/CardArtworkSVG';
@@ -9,11 +9,29 @@ import { InteractiveSnowCanvas } from './components/InteractiveSnowCanvas';
 import { EDITORIAL_CONTENT, LegalDocId } from './data/editorialContent';
 import { Language, TRANSLATIONS } from './i18n/translations';
 import {
+  BAUBLE_COLORS,
+  BAUBLE_SHAPES,
+  BORDER_ELEMENTS,
   CARD_PRESETS,
   CardConfig,
+  DEDICATION_FONTS,
   DEFAULT_CARD_CONFIG,
+  FRAME_COLORS,
+  FRAME_STYLES,
+  GARLAND_COLORS,
+  GARLAND_STYLES,
+  GIFT_COLORS,
+  PAPER_PATTERNS,
+  SKIRT_COLORS,
+  TOPPER_COLORS,
+  TOPPER_SHAPES,
+  TREE_COLORS,
 } from './types/card';
 import { exportCardToPng } from './utils/exportCard';
+
+function pickRandom<T>(items: T[]): T {
+  return items[Math.floor(Math.random() * items.length)];
+}
 
 function localizeDefaultConfig(base: CardConfig, lang: Language): CardConfig {
   const t = TRANSLATIONS[lang];
@@ -35,6 +53,7 @@ export default function App() {
   const [snowDensity, setSnowDensity] = useState<'gentle' | 'rich'>('gentle');
   const [isExporting, setIsExporting] = useState(false);
   const [exportNotice, setExportNotice] = useState<string | null>(null);
+  const [showExportCoffeeCta, setShowExportCoffeeCta] = useState(false);
   const [activeLegalDoc, setActiveLegalDoc] = useState<LegalDocId | null>(null);
 
   const cardSvgRef = useRef<SVGSVGElement | null>(null);
@@ -106,10 +125,57 @@ export default function App() {
     studioRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleSurpriseMe = () => {
+    const shuffledShapes = [...BAUBLE_SHAPES].sort(() => Math.random() - 0.5);
+    const garlandOptions = GARLAND_STYLES.filter((g) => g.id !== 'none');
+
+    setConfig((prev) => ({
+      ...prev,
+      treeColor: pickRandom(TREE_COLORS).id,
+      treeExtras: {
+        candles: Math.random() > 0.25,
+        skirt: Math.random() > 0.3,
+        skirtColor: pickRandom(SKIRT_COLORS).id,
+        gifts: Math.random() > 0.2,
+        giftColor: pickRandom(GIFT_COLORS).id,
+      },
+      baubles: [
+        {
+          shape: shuffledShapes[0].id,
+          color: pickRandom(BAUBLE_COLORS).id,
+          glitter: Math.random() > 0.4,
+        },
+        {
+          shape: shuffledShapes[1].id,
+          color: pickRandom(BAUBLE_COLORS).id,
+          glitter: Math.random() > 0.4,
+        },
+        {
+          shape: shuffledShapes[2].id,
+          color: pickRandom(BAUBLE_COLORS).id,
+          glitter: Math.random() > 0.4,
+        },
+      ],
+      garlandStyle: pickRandom(garlandOptions).id,
+      garlandColor: pickRandom(GARLAND_COLORS).id,
+      topperShape: pickRandom(TOPPER_SHAPES).id,
+      topperColor: pickRandom(TOPPER_COLORS).id,
+      paperPattern: pickRandom(PAPER_PATTERNS).id,
+      frameStyle: pickRandom(FRAME_STYLES).id,
+      frameColor: pickRandom(FRAME_COLORS).id,
+      borderElement: pickRandom(BORDER_ELEMENTS).id,
+      dedicationFont: pickRandom(DEDICATION_FONTS).id,
+    }));
+    setActivePresetId('custom');
+    setExportNotice(null);
+    setShowExportCoffeeCta(false);
+  };
+
   const handleReset = () => {
     setConfig(localizeDefaultConfig(DEFAULT_CARD_CONFIG, lang));
     setActivePresetId(CARD_PRESETS[0].id);
     setActiveStep(1);
+    setShowExportCoffeeCta(false);
     setExportNotice(t.canvas.resetNotice);
     setTimeout(() => setExportNotice(null), 3000);
   };
@@ -118,12 +184,18 @@ export default function App() {
     if (!cardSvgRef.current || isExporting) return;
     setIsExporting(true);
     setExportNotice(null);
+    setShowExportCoffeeCta(false);
     try {
       await exportCardToPng(cardSvgRef.current, config, t.canvas.downloadFilename);
       setExportNotice(t.canvas.exportSuccess);
-      setTimeout(() => setExportNotice(null), 4000);
+      setShowExportCoffeeCta(true);
+      setTimeout(() => {
+        setExportNotice(null);
+        setShowExportCoffeeCta(false);
+      }, 9000);
     } catch {
       setExportNotice(t.canvas.exportError);
+      setShowExportCoffeeCta(false);
     } finally {
       setIsExporting(false);
     }
@@ -250,6 +322,14 @@ export default function App() {
                       </button>
                     );
                   })}
+                  <button
+                    type="button"
+                    onClick={handleSurpriseMe}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dashed border-[#C7B79F] bg-[#FAF5EC] text-[#5B4834] text-xs font-medium hover:border-[#7D1E28] hover:text-[#7D1E28] transition-all cursor-pointer whitespace-nowrap"
+                  >
+                    <Shuffle className="w-3 h-3" />
+                    <span>{t.hero.surpriseMe}</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -308,12 +388,24 @@ export default function App() {
                       {t.canvas.hint}
                     </p>
                     {exportNotice && (
-                      <p
-                        role="status"
-                        className="text-xs font-medium text-[#7D1E28]"
-                      >
-                        {exportNotice}
-                      </p>
+                      <div role="status" className="space-y-1">
+                        <p className="text-xs font-medium text-[#7D1E28]">
+                          {exportNotice}
+                        </p>
+                        {showExportCoffeeCta && (
+                          <p className="text-xs text-[#6B6056]">
+                            <a
+                              href="https://buymeacoffee.com/mistlequill"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[#7D1E28] underline underline-offset-4 hover:text-[#5E141C] font-medium"
+                            >
+                              <Coffee className="w-3 h-3" />
+                              <span>{t.canvas.exportCoffeeCta}</span>
+                            </a>
+                          </p>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>

@@ -63,7 +63,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
       kicker: 'Holiday Writing Guide',
       title: 'Curated Christmas & New Year wishes',
       subtitle:
-        'Not sure what to write inside the frame? Browse our hand-written seasonal sentiments below and click any note to place it directly onto your card.',
+        'Not sure what to write inside the frame? Browse our curated seasonal sentiments below and click any note to place it directly onto your card.',
       applyBtn: 'Use on card',
       appliedBtn: 'Applied',
       categories: [
@@ -104,7 +104,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
       tips: [
         {
           title: '01. Recommended Paper Stock',
-          body: 'Choose uncoated cotton, linen, or lightly textured watercolor cardstock between 270 gsm and 320 gsm. Natural warm off-white or cream paper preserves the hand-painted ink aesthetic far better than glossy photo paper.',
+          body: 'Choose uncoated cotton, linen, or lightly textured watercolor cardstock between 270 gsm and 320 gsm. Natural warm off-white or cream paper preserves the watercolor and ink aesthetic far better than glossy photo paper.',
         },
         {
           title: '02. Color & Print Settings',
@@ -149,7 +149,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
         title: 'About Mistlequill',
         updated: 'Updated: November 2026',
         paragraphs: [
-          'Mistlequill is an independent digital stationery studio created for people who appreciate hand-painted watercolor, fountain-pen ink linework, and thoughtful holiday traditions.',
+          'Mistlequill is an independent digital stationery studio created for people who appreciate watercolor aesthetics, botanical ink linework, and thoughtful holiday traditions.',
           'Our interactive card builder lets you compose bespoke Christmas greeting cards step by step, from choosing the evergreen palette and three distinct bauble styles to framing your personal dedication inside heirloom borders.',
           'All illustrations, seasonal melodies, and snowfall effects run directly in your browser with no account registration required.',
         ],
@@ -237,7 +237,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
       tips: [
         {
           title: '01. Wybór odpowiedniego papieru',
-          body: 'Najlepiej sprawdzi się niepowlekany papier bawełniany, lniany lub fakturowany karton akwarelowy o gramaturze 270–320 g/m². Naturalny kremowy odcień pięknie podkreśla akwarelowe przejścia i kontury piórkiem.',
+          body: 'Najlepiej sprawdzi się niepowlekany papier bawełniany, lniany lub fakturowany karton akwarelowy o gramaturze 270–320 g/m². Naturalny kremowy odcień pięknie podkreśla akwarelowe przejścia i delikatne kontury.',
         },
         {
           title: '02. Ustawienia druku',
@@ -282,7 +282,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
         title: 'O pracowni Mistlequill',
         updated: 'Aktualizacja: listopad 2026',
         paragraphs: [
-          'Mistlequill to niezależna pracownia cyfrowej papeterii stworzona z miłości do akwareli, ręcznego rysunku tuszem i świątecznych tradycji.',
+          'Mistlequill to niezależna pracownia cyfrowej papeterii stworzona z miłości do akwareli, botanicznych ilustracji i świątecznych tradycji.',
           'Nasz kreator pozwala krok po kroku zaprojektować własną kartkę bożonarodzeniową, od odcienia igliwia i trzech rodzajów bombek, aż po dekoracyjną ramkę i osobistą dedykację.',
           'Wszystkie ilustracje, melodie pozytywki oraz opadający śnieg działają bezpośrednio w przeglądarce bez potrzeby zakładania konta.',
         ],

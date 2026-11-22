@@ -3,7 +3,8 @@ export type TreeColorId =
   | 'sage-mist'
   | 'frost-spruce'
   | 'golden-cedar'
-  | 'blush-alabaster';
+  | 'blush-alabaster'
+  | 'twilight-plum';
 
 export type BaubleShapeId =
   | 'round'
@@ -21,10 +22,22 @@ export type BaubleColorId =
   | 'burgundy'
   | 'sage'
   | 'porcelain-blue'
-  | 'champagne';
+  | 'champagne'
+  | 'plum'
+  | 'lavender'
+  | 'emerald'
+  | 'copper';
 
 export type GarlandStyleId = 'beads' | 'ribbon' | 'pearls' | 'stars' | 'none';
-export type GarlandColorId = 'gold' | 'crimson' | 'blush' | 'cream' | 'sage';
+export type GarlandColorId =
+  | 'gold'
+  | 'crimson'
+  | 'blush'
+  | 'cream'
+  | 'sage'
+  | 'plum'
+  | 'lavender'
+  | 'silver';
 
 export type TopperShapeId =
   | 'ribbon-bow'
@@ -39,7 +52,26 @@ export type TopperColorId =
   | 'antique-gold'
   | 'pearl'
   | 'burgundy'
-  | 'sage';
+  | 'sage'
+  | 'plum'
+  | 'lavender'
+  | 'champagne';
+
+export type SkirtColorId =
+  | 'blush'
+  | 'cream-gold'
+  | 'crimson'
+  | 'sage'
+  | 'plum'
+  | 'lavender';
+
+export type GiftColorId =
+  | 'classic-rose'
+  | 'gold-ivory'
+  | 'plum-lavender'
+  | 'sage-gold'
+  | 'crimson-forest'
+  | 'midnight-gold';
 
 export type PaperPatternId =
   | 'sage-gingham'
@@ -55,7 +87,7 @@ export type FrameStyleId =
   | 'double-ink-ribbons'
   | 'holly-wreath';
 
-export type FrameColorId = 'crimson' | 'forest' | 'gold' | 'ink' | 'rose';
+export type FrameColorId = 'crimson' | 'forest' | 'gold' | 'ink' | 'rose' | 'plum';
 
 export type BorderElementId =
   | 'holly-berries'
@@ -76,7 +108,9 @@ export interface BaubleSlot {
 export interface TreeExtras {
   candles: boolean;
   skirt: boolean;
+  skirtColor: SkirtColorId;
   gifts: boolean;
+  giftColor: GiftColorId;
 }
 
 export interface CardConfig {
@@ -140,6 +174,13 @@ export const TREE_COLORS: ColorOption<TreeColorId>[] = [
     base: '#C9B9B5',
     light: '#ECE4E1',
     dark: '#8C7A75',
+  },
+  {
+    id: 'twilight-plum',
+    label: 'Śliwkowy Zmierzch',
+    base: '#6C5975',
+    light: '#A18FAB',
+    dark: '#3D2E45',
   },
 ];
 
@@ -209,6 +250,34 @@ export const BAUBLE_COLORS: ColorOption<BaubleColorId>[] = [
     light: '#F6EADF',
     dark: '#A48562',
   },
+  {
+    id: 'plum',
+    label: 'Śliwkowy Fiolet',
+    base: '#75417A',
+    light: '#B180B6',
+    dark: '#421D46',
+  },
+  {
+    id: 'lavender',
+    label: 'Lawenda',
+    base: '#A48EBE',
+    light: '#DCD0EB',
+    dark: '#675282',
+  },
+  {
+    id: 'emerald',
+    label: 'Szmaragd',
+    base: '#2F6E56',
+    light: '#64A38A',
+    dark: '#194031',
+  },
+  {
+    id: 'copper',
+    label: 'Miedź',
+    base: '#C47752',
+    light: '#E7AB8C',
+    dark: '#824628',
+  },
 ];
 
 export const GARLAND_STYLES: { id: GarlandStyleId; label: string; desc: string }[] = [
@@ -225,6 +294,9 @@ export const GARLAND_COLORS: ColorOption<GarlandColorId>[] = [
   { id: 'blush', label: 'Pudrowy Róż', base: '#DC959B', light: '#F3CBD0', dark: '#A65D64' },
   { id: 'cream', label: 'Kremowa Perła', base: '#EDE6D8', light: '#FCF9F2', dark: '#B3A894' },
   { id: 'sage', label: 'Szałwia', base: '#6F8872', light: '#9EB4A0', dark: '#455947' },
+  { id: 'plum', label: 'Śliwkowy Fiolet', base: '#75417A', light: '#B180B6', dark: '#421D46' },
+  { id: 'lavender', label: 'Lawenda', base: '#A48EBE', light: '#DCD0EB', dark: '#675282' },
+  { id: 'silver', label: 'Srebro', base: '#B5BCC4', light: '#E6EBF0', dark: '#76808A' },
 ];
 
 export const TOPPER_SHAPES: { id: TopperShapeId; label: string }[] = [
@@ -242,6 +314,121 @@ export const TOPPER_COLORS: ColorOption<TopperColorId>[] = [
   { id: 'pearl', label: 'Alabaster', base: '#ECE7DC', light: '#FFFFFF', dark: '#B3AA99' },
   { id: 'burgundy', label: 'Burgund', base: '#701C28', light: '#9E4450', dark: '#410B13' },
   { id: 'sage', label: 'Szałwia', base: '#6B826E', light: '#9EB3A0', dark: '#3F5242' },
+  { id: 'plum', label: 'Śliwkowy Fiolet', base: '#75417A', light: '#B180B6', dark: '#421D46' },
+  { id: 'lavender', label: 'Lawenda', base: '#A48EBE', light: '#DCD0EB', dark: '#675282' },
+  { id: 'champagne', label: 'Szampan', base: '#DEC5A6', light: '#F6EADF', dark: '#A48562' },
+];
+
+export interface SkirtPalette {
+  id: SkirtColorId;
+  label: string;
+  fill: string;
+  fold: string;
+  trim: string;
+}
+
+export const SKIRT_COLORS: SkirtPalette[] = [
+  { id: 'blush', label: 'Pudrowy Róż', fill: '#F2D8D9', fold: '#DFB6BA', trim: '#B22F3D' },
+  { id: 'cream-gold', label: 'Krem & Złoto', fill: '#F5EFE2', fold: '#E0D2B6', trim: '#B78C36' },
+  { id: 'crimson', label: 'Karmin', fill: '#DFA0A4', fold: '#C17076', trim: '#7D1E28' },
+  { id: 'sage', label: 'Szałwia', fill: '#DCE5D9', fold: '#B7C7B2', trim: '#44634A' },
+  { id: 'plum', label: 'Śliwkowy Fiolet', fill: '#DFCBE4', fold: '#BD9BC5', trim: '#6A3670' },
+  { id: 'lavender', label: 'Lawenda', fill: '#E8E0F2', fold: '#C4B6D9', trim: '#7A6299' },
+];
+
+export interface GiftPalette {
+  id: GiftColorId;
+  label: string;
+  box1: string;
+  box2: string;
+  box3: string;
+  box4: string;
+  ribbonMain: string;
+  bowMain: string;
+  ribbonAlt: string;
+  bowAlt: string;
+  ribbonSmall: string;
+}
+
+export const GIFT_COLORS: GiftPalette[] = [
+  {
+    id: 'classic-rose',
+    label: 'Róż & Karmin',
+    box1: '#F2B8B8',
+    box2: '#F6D5D4',
+    box3: '#F0B7B9',
+    box4: '#EADAC2',
+    ribbonMain: '#B6303B',
+    bowMain: '#9B212C',
+    ribbonAlt: '#A62530',
+    bowAlt: '#8C1A24',
+    ribbonSmall: '#4D6E52',
+  },
+  {
+    id: 'gold-ivory',
+    label: 'Złoto & Krem',
+    box1: '#EED9A8',
+    box2: '#F7EEDF',
+    box3: '#E4C788',
+    box4: '#F3E7CC',
+    ribbonMain: '#B58932',
+    bowMain: '#8E671D',
+    ribbonAlt: '#A87C29',
+    bowAlt: '#7D5A18',
+    ribbonSmall: '#8B2A34',
+  },
+  {
+    id: 'plum-lavender',
+    label: 'Fiolet & Lawenda',
+    box1: '#D7BBE0',
+    box2: '#ECE0F2',
+    box3: '#C5A2D1',
+    box4: '#EADCC9',
+    ribbonMain: '#6E3975',
+    bowMain: '#4F2356',
+    ribbonAlt: '#7F5D9E',
+    bowAlt: '#5C3F78',
+    ribbonSmall: '#B8903D',
+  },
+  {
+    id: 'sage-gold',
+    label: 'Szałwia & Złoto',
+    box1: '#C7D8C3',
+    box2: '#E7EFE3',
+    box3: '#F1E2BF',
+    box4: '#DCE5D7',
+    ribbonMain: '#49694E',
+    bowMain: '#2F4A34',
+    ribbonAlt: '#B68C39',
+    bowAlt: '#8A651F',
+    ribbonSmall: '#9E323C',
+  },
+  {
+    id: 'crimson-forest',
+    label: 'Karmin & Jodła',
+    box1: '#DF8B91',
+    box2: '#F2D6D4',
+    box3: '#BFD1BA',
+    box4: '#EADAC2',
+    ribbonMain: '#7D1E28',
+    bowMain: '#541018',
+    ribbonAlt: '#385940',
+    bowAlt: '#243C29',
+    ribbonSmall: '#B8903D',
+  },
+  {
+    id: 'midnight-gold',
+    label: 'Granat & Złoto',
+    box1: '#B8C6D6',
+    box2: '#E4EAF0',
+    box3: '#EAD8B4',
+    box4: '#CFD9E3',
+    ribbonMain: '#2B4059',
+    bowMain: '#19293D',
+    ribbonAlt: '#B58B35',
+    bowAlt: '#8A661C',
+    ribbonSmall: '#8B2A34',
+  },
 ];
 
 export const PAPER_PATTERNS: {
@@ -271,6 +458,7 @@ export const FRAME_COLORS: ColorOption<FrameColorId>[] = [
   { id: 'gold', label: 'Złoto Płatkowe', base: '#A9833C', light: '#D1B16E', dark: '#6E511B' },
   { id: 'ink', label: 'Atrament', base: '#231E1B', light: '#524944', dark: '#0D0A09' },
   { id: 'rose', label: 'Różany', base: '#B76871', light: '#DC9BA2', dark: '#7D3B43' },
+  { id: 'plum', label: 'Śliwkowy Fiolet', base: '#6E3C73', light: '#A575AA', dark: '#3D1D40' },
 ];
 
 export const BORDER_ELEMENTS: { id: BorderElementId; label: string }[] = [
@@ -292,7 +480,7 @@ export const SAMPLE_DEDICATIONS: string[] = [
   'Wesołych Świąt pełnych ciepła, światła i bliskich serc.',
   'Niech te Święta przyniosą spokój, zachwyt i najpiękniejsze wspomnienia.',
   'Magicznych Świąt Bożego Narodzenia oraz pomyślności w Nowym Roku.',
-  'merry & bright - najcieplejsze życzenia prosto z serca.',
+  'merry & bright · najcieplejsze życzenia prosto z serca.',
 ];
 
 export interface CardPreset {
@@ -309,7 +497,13 @@ export const CARD_PRESETS: CardPreset[] = [
     subtitle: 'Kratka gingham · falista ramka',
     config: {
       treeColor: 'classic-pine',
-      treeExtras: { candles: true, skirt: true, gifts: true },
+      treeExtras: {
+        candles: true,
+        skirt: true,
+        skirtColor: 'blush',
+        gifts: true,
+        giftColor: 'classic-rose',
+      },
       baubles: [
         { shape: 'round', color: 'crimson', glitter: true },
         { shape: 'teardrop', color: 'blush', glitter: false },
@@ -335,7 +529,13 @@ export const CARD_PRESETS: CardPreset[] = [
     subtitle: 'Papier czerpany · złoty brokat',
     config: {
       treeColor: 'sage-mist',
-      treeExtras: { candles: true, skirt: true, gifts: true },
+      treeExtras: {
+        candles: true,
+        skirt: true,
+        skirtColor: 'cream-gold',
+        gifts: true,
+        giftColor: 'gold-ivory',
+      },
       baubles: [
         { shape: 'round', color: 'blush', glitter: true },
         { shape: 'heart', color: 'burgundy', glitter: true },
@@ -361,7 +561,13 @@ export const CARD_PRESETS: CardPreset[] = [
     subtitle: 'Koronkowy medalion · jemioła',
     config: {
       treeColor: 'classic-pine',
-      treeExtras: { candles: false, skirt: false, gifts: true },
+      treeExtras: {
+        candles: false,
+        skirt: false,
+        skirtColor: 'crimson',
+        gifts: true,
+        giftColor: 'crimson-forest',
+      },
       baubles: [
         { shape: 'round', color: 'crimson', glitter: false },
         { shape: 'pinecone', color: 'antique-gold', glitter: true },
@@ -375,7 +581,7 @@ export const CARD_PRESETS: CardPreset[] = [
       frameStyle: 'scalloped-oval',
       frameColor: 'crimson',
       borderElement: 'holly-berries',
-      dedication: 'merry & bright - najcieplejsze życzenia prosto z serca.',
+      dedication: 'merry & bright · najcieplejsze życzenia prosto z serca.',
       signature: '',
       dedicationFont: 'script',
       showKraftEnvelope: true,
@@ -387,7 +593,13 @@ export const CARD_PRESETS: CardPreset[] = [
     subtitle: 'Romby · wieniec ostrokrzewu',
     config: {
       treeColor: 'frost-spruce',
-      treeExtras: { candles: true, skirt: false, gifts: false },
+      treeExtras: {
+        candles: true,
+        skirt: false,
+        skirtColor: 'sage',
+        gifts: false,
+        giftColor: 'sage-gold',
+      },
       baubles: [
         { shape: 'diamond', color: 'porcelain-blue', glitter: true },
         { shape: 'star', color: 'champagne', glitter: true },
@@ -404,6 +616,38 @@ export const CARD_PRESETS: CardPreset[] = [
       dedication: 'Magicznych Świąt Bożego Narodzenia oraz pomyślności w Nowym Roku.',
       signature: 'Rodzina Kowalskich',
       dedicationFont: 'editorial-italic',
+      showKraftEnvelope: true,
+    },
+  },
+  {
+    id: 'plum-gold',
+    name: 'Śliwka & Złoto',
+    subtitle: 'Papier czerpany · fiolet i złoto',
+    config: {
+      treeColor: 'twilight-plum',
+      treeExtras: {
+        candles: true,
+        skirt: true,
+        skirtColor: 'plum',
+        gifts: true,
+        giftColor: 'plum-lavender',
+      },
+      baubles: [
+        { shape: 'teardrop', color: 'antique-gold', glitter: true },
+        { shape: 'round', color: 'plum', glitter: true },
+        { shape: 'star', color: 'lavender', glitter: false },
+      ],
+      garlandStyle: 'stars',
+      garlandColor: 'gold',
+      topperShape: 'bethlehem-star',
+      topperColor: 'antique-gold',
+      paperPattern: 'cream-laid',
+      frameStyle: 'double-ink-ribbons',
+      frameColor: 'plum',
+      borderElement: 'ink-sparkles',
+      dedication: 'Wesołych Świąt pełnych ciepła, światła i bliskich serc.',
+      signature: 'Z najcieplejszymi życzeniami',
+      dedicationFont: 'script',
       showKraftEnvelope: true,
     },
   },

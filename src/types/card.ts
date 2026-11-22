@@ -446,7 +446,7 @@ export const PAPER_PATTERNS: {
 ];
 
 export const FRAME_STYLES: { id: FrameStyleId; label: string; desc: string }[] = [
-  { id: 'wavy-bows', label: 'Falista z Kokardkami', desc: 'Malowana pędzelkiem fala z dwiema kokardami' },
+  { id: 'wavy-bows', label: 'Falista z Kokardkami', desc: 'Akwarelowa fala z dwiema kokardami' },
   { id: 'scalloped-oval', label: 'Koronkowy Medalion', desc: 'Ząbkowany owal z kropkami i kokardą u góry' },
   { id: 'double-ink-ribbons', label: 'Podwójny Tusz i Wstążki', desc: 'Podwójna ramka ze wstążeczkami w rogach' },
   { id: 'holly-wreath', label: 'Botaniczny Wieniec', desc: 'Rysunkowy łuk z gałązek i jemioły' },

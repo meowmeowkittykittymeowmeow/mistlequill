@@ -149,7 +149,7 @@ export interface Translations {
 export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     brand: 'Mistlequill',
-    docTitle: 'Mistlequill | Hand-Illustrated Christmas Card Maker',
+    docTitle: 'Mistlequill | Watercolor & Ink Christmas Card Maker',
     nav: {
       inspirations: 'Inspirations',
       studio: 'Studio',
@@ -162,7 +162,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker1: 'Winter Collection',
       kicker2: 'Watercolor & Ink',
       kicker3: '1500×2100 px Export',
-      title: 'Create your own hand-illustrated Christmas card',
+      title: 'Create your own illustrated Christmas card',
       presetsLabel: 'Curated Studio Presets',
       surpriseMe: 'Surprise Me',
     },
@@ -219,7 +219,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Step 01 · The Evergreen Base',
         title: 'Watercolor tree palette',
         subtitle:
-          'Choose the hand-painted watercolor shade for your pine branches before hanging the ornaments.',
+          'Choose the watercolor shade for your pine branches before hanging the ornaments.',
         treeColorLabel: 'Tree Color',
         extrasLabel: 'Illustrated Tree Details',
         candlesTitle: 'Wax Taper Candles',
@@ -227,7 +227,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         skirtTitle: 'Scalloped Tree Skirt',
         skirtDesc: 'Blush or seasonal fabric around the base',
         skirtColorLabel: 'Skirt Color',
-        giftsTitle: 'Hand-Sketched Gift Boxes',
+        giftsTitle: 'Illustrated Gift Boxes',
         giftsDesc: 'Watercolor parcels tied with ribbons underneath',
         giftColorLabel: 'Gift Boxes Palette',
       },
@@ -240,7 +240,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         shapeLabel: 'Bauble Shape',
         colorLabel: 'Watercolor Pigment',
         glitterTitle: 'Gold Leaf Shimmer',
-        glitterDesc: 'Delicate hand-painted gold glitter flecks',
+        glitterDesc: 'Delicate gold glitter flecks',
       },
       step3: {
         kicker: 'Step 03 · Garlands',
@@ -275,7 +275,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         fontShort: {
           script: 'Calligraphy',
           'editorial-italic': 'Serif Italic',
-          handwritten: 'Handwritten',
+          handwritten: 'Casual Script',
         },
       },
     },
@@ -310,7 +310,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       copper: 'Copper Rose',
     },
     garlandStyles: {
-      beads: { label: 'Beaded Strand', desc: 'Fine hand-painted pearl beads' },
+      beads: { label: 'Beaded Strand', desc: 'Fine pearl-style beaded garland' },
       ribbon: { label: 'Silk Ribbon', desc: 'Flowing watercolor sash' },
       pearls: { label: 'Heirloom Pearls', desc: 'Luminous vintage pearl drape' },
       stars: { label: 'Starry Chain', desc: 'Sketched golden star garland' },
@@ -355,7 +355,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     frameStyles: {
       'wavy-bows': {
         label: 'Wavy Frame & Bows',
-        desc: 'Hand-brushed undulating outline with top & bottom bows',
+        desc: 'Undulating watercolor-style outline with top & bottom bows',
       },
       'scalloped-oval': {
         label: 'Scalloped Medallion',
@@ -483,7 +483,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Krok 01 · Baza choinki',
         title: 'Odcień akwarelowego drzewka',
         subtitle:
-          'Wybierz paletę igliwia malowanego pędzlem i tuszem, zanim przystąpisz do wieszania bombek.',
+          'Wybierz paletę akwarelowego igliwia, zanim przystąpisz do wieszania bombek.',
         treeColorLabel: 'Kolor drzewka',
         extrasLabel: 'Detale ilustracyjne na drzewku',
         candlesTitle: 'Świeczki woskowe',
@@ -491,7 +491,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         skirtTitle: 'Falbankowa spódniczka',
         skirtDesc: 'Ozdobna tkanina pod pniem choinki',
         skirtColorLabel: 'Kolor spódniczki',
-        giftsTitle: 'Szkicowane prezenty',
+        giftsTitle: 'Ilustrowane prezenty',
         giftsDesc: 'Paczki ze wstążkami u stóp drzewka',
         giftColorLabel: 'Kolory prezentów',
       },
@@ -619,7 +619,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     frameStyles: {
       'wavy-bows': {
         label: 'Falista z Kokardkami',
-        desc: 'Malowana pędzelkiem fala z dwiema kokardami',
+        desc: 'Akwarelowa fala z dwiema kokardami',
       },
       'scalloped-oval': {
         label: 'Koronkowy Medalion',

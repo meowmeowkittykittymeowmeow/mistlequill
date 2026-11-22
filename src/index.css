@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: "Great Vibes", "Cormorant Garamond", cursive;
+  --font-hand: "Caveat", cursive;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #faf7f2;
+    color: #1e1a17;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #faf7f2;
+    background-image:
+      radial-gradient(at 15% 15%, rgba(125, 30, 40, 0.03) 0px, transparent 50%),
+      radial-gradient(at 85% 80%, rgba(78, 97, 81, 0.04) 0px, transparent 55%);
+    overflow-x: hidden;
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-card-script {
+  font-family: var(--font-script);
+}
+
+.font-card-hand {
+  font-family: var(--font-hand);
+}
+
+/* Subtle custom scrollbar for studio configurator */
+.atelier-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.atelier-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.atelier-scroll::-webkit-scrollbar-thumb {
+  background-color: #dcd3c4;
+  border-radius: 999px;
+}
+
+.atelier-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #bfb29e;
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1) rotate(-1deg);
+    opacity: 0.94;
+  }
+  35% {
+    transform: scaleY(1.08) scaleX(0.95) rotate(2deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(0.94) scaleX(1.03) rotate(-2deg);
+    opacity: 0.9;
+  }
+}
+
+.candle-flame {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: candleFlicker 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .candle-flame {
+    animation: none;
+  }
+}

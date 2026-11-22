@@ -1,0 +1,6 @@
+{
+  "name": "L'Atelier Świąt — Kreator Kartek",
+  "description": "Ekskluzywna pracownia ręcznie ilustrowanych kartek świątecznych w stylu akwareli i tuszu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

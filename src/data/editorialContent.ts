@@ -89,7 +89,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
           id: 'short',
           title: 'Short & Minimalist',
           items: [
-            'merry & bright — warmest wishes straight from the heart.',
+            'merry & bright - warmest wishes straight from the heart.',
             'Joy to you and yours this Christmas and always.',
             'Season’s Greetings and a joyful, prosperous New Year.',
           ],
@@ -150,7 +150,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
         updated: 'Updated: November 2026',
         paragraphs: [
           'Mistlequill is an independent digital stationery studio created for people who appreciate hand-painted watercolor, fountain-pen ink linework, and thoughtful holiday traditions.',
-          'Our interactive card builder lets you compose bespoke Christmas greeting cards step by step — from choosing the evergreen palette and three distinct bauble styles to framing your personal dedication inside heirloom borders.',
+          'Our interactive card builder lets you compose bespoke Christmas greeting cards step by step - from choosing the evergreen palette and three distinct bauble styles to framing your personal dedication inside heirloom borders.',
           'All illustrations, seasonal melodies, and snowfall effects run directly in your browser with no account registration required.',
         ],
       },
@@ -196,7 +196,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
       kicker: 'Biblioteka Życzeń Świątecznych',
       title: 'Gotowe dedykacje i sentencje na kartkę',
       subtitle:
-        'Szukasz eleganckich słów do wpisania wewnątrz ramki? Wybierz jedną z przygotowanych propozycji poniżej — jednym kliknięciem przeniesiesz ją na swoją kartkę.',
+        'Szukasz eleganckich słów do wpisania wewnątrz ramki? Wybierz jedną z przygotowanych propozycji poniżej - jednym kliknięciem przeniesiesz ją na swoją kartkę.',
       applyBtn: 'Użyj na kartce',
       appliedBtn: 'Wybrano',
       categories: [
@@ -222,7 +222,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
           id: 'short',
           title: 'Krótkie i minimalistyczne',
           items: [
-            'merry & bright — najcieplejsze życzenia prosto z serca.',
+            'merry & bright - najcieplejsze życzenia prosto z serca.',
             'Radosnych, pełnych blasku Świąt Bożego Narodzenia.',
             'Wesołych Świąt i szczęśliwego Nowego Roku.',
           ],
@@ -283,7 +283,7 @@ export const EDITORIAL_CONTENT: Record<Language, EditorialBundle> = {
         updated: 'Aktualizacja: listopad 2026',
         paragraphs: [
           'Mistlequill to niezależna pracownia cyfrowej papeterii stworzona z miłości do akwareli, ręcznego rysunku tuszem i świątecznych tradycji.',
-          'Nasz kreator pozwala krok po kroku zaprojektować własną kartkę bożonarodzeniową — od odcienia igliwia i trzech rodzajów bombek, aż po dekoracyjną ramkę i osobistą dedykację.',
+          'Nasz kreator pozwala krok po kroku zaprojektować własną kartkę bożonarodzeniową - od odcienia igliwia i trzech rodzajów bombek, aż po dekoracyjną ramkę i osobistą dedykację.',
           'Wszystkie ilustracje, melodie pozytywki oraz opadający śnieg działają bezpośrednio w przeglądarce bez potrzeby zakładania konta.',
         ],
       },

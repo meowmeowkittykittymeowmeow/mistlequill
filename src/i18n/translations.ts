@@ -7,7 +7,9 @@ import {
   FrameStyleId,
   GarlandColorId,
   GarlandStyleId,
+  GiftColorId,
   PaperPatternId,
+  SkirtColorId,
   TopperColorId,
   TopperShapeId,
   TreeColorId,
@@ -32,6 +34,7 @@ export interface Translations {
     kicker3: string;
     title: string;
     presetsLabel: string;
+    surpriseMe: string;
   };
   presets: Record<string, { name: string; subtitle: string }>;
   toolbar: {
@@ -51,6 +54,7 @@ export interface Translations {
     hint: string;
     resetNotice: string;
     exportSuccess: string;
+    exportCoffeeCta: string;
     exportError: string;
     downloadFilename: string;
   };
@@ -80,8 +84,10 @@ export interface Translations {
       candlesDesc: string;
       skirtTitle: string;
       skirtDesc: string;
+      skirtColorLabel: string;
       giftsTitle: string;
       giftsDesc: string;
+      giftColorLabel: string;
     };
     step2: {
       kicker: string;
@@ -134,6 +140,8 @@ export interface Translations {
   frameStyles: Record<FrameStyleId, { label: string; desc: string }>;
   frameColors: Record<FrameColorId, string>;
   borderElements: Record<BorderElementId, string>;
+  skirtColors: Record<SkirtColorId, string>;
+  giftColors: Record<GiftColorId, string>;
   sampleDedications: string[];
   defaultSignature: string;
 }
@@ -156,12 +164,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker3: '1500×2100 px Export',
       title: 'Create your own hand-illustrated Christmas card',
       presetsLabel: 'Curated Studio Presets',
+      surpriseMe: 'Surprise Me',
     },
     presets: {
       'karti-gingham': { name: 'Sage & Crimson', subtitle: 'Gingham check · wavy frame' },
       'watercolor-rose': { name: 'Rose & Candles', subtitle: 'Cotton paper · gold shimmer' },
       'candy-medallion': { name: 'Candy Stripes', subtitle: 'Lace medallion · mistletoe' },
       'botanical-winter': { name: 'Botanical Winter', subtitle: 'Diamond lattice · holly wreath' },
+      'plum-gold': { name: 'Plum & Gold', subtitle: 'Cotton paper · violet & gold' },
     },
     toolbar: {
       playMusic: 'Music',
@@ -185,6 +195,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       hint: 'Move your cursor across the tree to sway the branches and baubles · Click any bauble to swing it',
       resetNotice: 'Restored the studio default design.',
       exportSuccess: 'Your card has been saved as a high-res PNG (1500×2100 px).',
+      exportCoffeeCta: 'Enjoyed creating your card? Support the studio with a coffee',
       exportError: 'Could not export the PNG image. Please try again.',
       downloadFilename: 'christmas-card.png',
     },
@@ -214,15 +225,17 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         candlesTitle: 'Wax Taper Candles',
         candlesDesc: 'Softly flickering candlelight along the branches',
         skirtTitle: 'Scalloped Tree Skirt',
-        skirtDesc: 'Blush ruffled fabric around the base',
+        skirtDesc: 'Blush or seasonal fabric around the base',
+        skirtColorLabel: 'Skirt Color',
         giftsTitle: 'Hand-Sketched Gift Boxes',
         giftsDesc: 'Watercolor parcels tied with ribbons underneath',
+        giftColorLabel: 'Gift Boxes Palette',
       },
       step2: {
         kicker: 'Step 02 · Set of 3 Bauble Styles',
         title: 'Bauble shapes & colors',
         subtitle:
-          'Curate 3 distinct ornament types - all three will hang together harmoniously on your tree.',
+          'Curate 3 distinct ornament types, and all three will hang together harmoniously on your tree.',
         slotPrefix: 'Type',
         shapeLabel: 'Bauble Shape',
         colorLabel: 'Watercolor Pigment',
@@ -241,7 +254,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Step 04 · Tree Topper',
         title: 'Crown your Christmas tree',
         subtitle:
-          'Select an heirloom topper variant - from a flowing watercolor bow to a Bethlehem star or vintage finial.',
+          'Select an heirloom topper variant, from a flowing watercolor bow to a Bethlehem star or vintage finial.',
         shapeLabel: 'Topper Design',
         colorLabel: 'Topper Color',
       },
@@ -272,6 +285,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'frost-spruce': 'Frosted Spruce',
       'golden-cedar': 'Olive Cedar',
       'blush-alabaster': 'Alabaster Frost',
+      'twilight-plum': 'Twilight Plum',
     },
     baubleShapes: {
       round: 'Sphere',
@@ -290,6 +304,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       sage: 'Sage Green',
       'porcelain-blue': 'Porcelain Blue',
       champagne: 'Champagne',
+      plum: 'Plum Violet',
+      lavender: 'Lavender',
+      emerald: 'Emerald',
+      copper: 'Copper Rose',
     },
     garlandStyles: {
       beads: { label: 'Beaded Strand', desc: 'Fine hand-painted pearl beads' },
@@ -304,6 +322,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       blush: 'Blush Pink',
       cream: 'Cream Pearl',
       sage: 'Sage',
+      plum: 'Plum Violet',
+      lavender: 'Lavender',
+      silver: 'Silver Frost',
     },
     topperShapes: {
       'ribbon-bow': 'Flowing Ribbon Bow',
@@ -319,6 +340,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pearl: 'Alabaster',
       burgundy: 'Burgundy',
       sage: 'Sage',
+      plum: 'Plum Violet',
+      lavender: 'Lavender',
+      champagne: 'Champagne',
     },
     paperPatterns: {
       'sage-gingham': 'Sage Gingham',
@@ -352,6 +376,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       gold: 'Leaf Gold',
       ink: 'Charcoal Ink',
       rose: 'Dusty Rose',
+      plum: 'Plum Violet',
     },
     borderElements: {
       'holly-berries': 'Holly & Berries',
@@ -361,11 +386,27 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'pine-sprigs': 'Pine Sprigs',
       none: 'Clean Margin',
     },
+    skirtColors: {
+      blush: 'Blush Rose',
+      'cream-gold': 'Ivory & Gold',
+      crimson: 'Crimson',
+      sage: 'Sage Green',
+      plum: 'Plum Violet',
+      lavender: 'Lavender',
+    },
+    giftColors: {
+      'classic-rose': 'Blush & Crimson',
+      'gold-ivory': 'Gold & Ivory',
+      'plum-lavender': 'Plum & Lavender',
+      'sage-gold': 'Sage & Gold',
+      'crimson-forest': 'Crimson & Pine',
+      'midnight-gold': 'Midnight & Gold',
+    },
     sampleDedications: [
       'Wishing you a warm, merry & bright Christmas.',
       'May your holidays sparkle with peace, warmth, and timeless joy.',
       'Warmest wishes for a magical Christmas and a happy New Year.',
-      'merry & bright - sending love and festive cheer from afar.',
+      'merry & bright · sending love and festive cheer from afar.',
     ],
     defaultSignature: 'With warmest wishes',
   },
@@ -387,12 +428,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker3: 'Eksport 1500×2100 px',
       title: 'Stwórz własną, ilustrowaną kartkę świąteczną',
       presetsLabel: 'Gotowe kompozycje pracowni',
+      surpriseMe: 'Losuj wzór',
     },
     presets: {
       'karti-gingham': { name: 'Szałwia & Karmin', subtitle: 'Kratka gingham · falista ramka' },
       'watercolor-rose': { name: 'Akwarela Róż & Świece', subtitle: 'Papier czerpany · złoty brokat' },
       'candy-medallion': { name: 'Kandyzowane Paski', subtitle: 'Koronkowy medalion · jemioła' },
       'botanical-winter': { name: 'Botaniczna Zima', subtitle: 'Romby · wieniec ostrokrzewu' },
+      'plum-gold': { name: 'Śliwka & Złoto', subtitle: 'Papier czerpany · fiolet i złoto' },
     },
     toolbar: {
       playMusic: 'Muzyka',
@@ -416,6 +459,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       hint: 'Przesuń kursor nad choinką, aby poruszyć gałązki i rozkołysać bombki · Kliknij bombkę, by ją musnąć',
       resetNotice: 'Przywrócono bazowy projekt pracowni.',
       exportSuccess: 'Kartka została zapisana jako plik PNG (1500×2100 px).',
+      exportCoffeeCta: 'Spodobała Ci się kartka? Postaw wirtualną kawę',
       exportError: 'Nie udało się wygenerować pliku PNG. Spróbuj ponownie.',
       downloadFilename: 'kartka-swiateczna.png',
     },
@@ -445,15 +489,17 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         candlesTitle: 'Świeczki woskowe',
         candlesDesc: 'Migoczące płomyki na gałązkach',
         skirtTitle: 'Falbankowa spódniczka',
-        skirtDesc: 'Różana tkanina pod pniem choinki',
+        skirtDesc: 'Ozdobna tkanina pod pniem choinki',
+        skirtColorLabel: 'Kolor spódniczki',
         giftsTitle: 'Szkicowane prezenty',
         giftsDesc: 'Paczki ze wstążkami u stóp drzewka',
+        giftColorLabel: 'Kolory prezentów',
       },
       step2: {
         kicker: 'Krok 02 · Zestaw 3 rodzajów bombek',
         title: 'Kształty i barwy bombek',
         subtitle:
-          'Skomponuj 3 różne rodzaje ozdób - wszystkie trzy pojawią się równocześnie na choince.',
+          'Skomponuj 3 różne rodzaje ozdób, a wszystkie trzy pojawią się równocześnie na choince.',
         slotPrefix: 'Rodzaj',
         shapeLabel: 'Kształt bombki',
         colorLabel: 'Kolor akwarelowy',
@@ -472,7 +518,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         kicker: 'Krok 04 · Zwieńczenie drzewka',
         title: 'Ozdoba na szczyt choinki',
         subtitle:
-          'Wybierz wzór czubka - od malarskiej kokardy po klasyczną gwiazdę lub szpic vintage.',
+          'Wybierz wzór czubka, od malarskiej kokardy po klasyczną gwiazdę lub szpic vintage.',
         shapeLabel: 'Wariant zwieńczenia',
         colorLabel: 'Kolor ozdoby szczytowej',
       },
@@ -503,6 +549,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'frost-spruce': 'Mroźny Świerk',
       'golden-cedar': 'Oliwkowy Cedr',
       'blush-alabaster': 'Alabastrowy Szron',
+      'twilight-plum': 'Śliwkowy Zmierzch',
     },
     baubleShapes: {
       round: 'Kula',
@@ -521,6 +568,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       sage: 'Szałwia',
       'porcelain-blue': 'Porcelanowy Błękit',
       champagne: 'Szampan',
+      plum: 'Śliwkowy Fiolet',
+      lavender: 'Lawenda',
+      emerald: 'Szmaragd',
+      copper: 'Miedź',
     },
     garlandStyles: {
       beads: { label: 'Koraliki', desc: 'Drobny łańcuch z perełek' },
@@ -535,6 +586,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       blush: 'Pudrowy Róż',
       cream: 'Kremowa Perła',
       sage: 'Szałwia',
+      plum: 'Śliwkowy Fiolet',
+      lavender: 'Lawenda',
+      silver: 'Srebro',
     },
     topperShapes: {
       'ribbon-bow': 'Wielka Kokarda',
@@ -550,6 +604,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pearl: 'Alabaster',
       burgundy: 'Burgund',
       sage: 'Szałwia',
+      plum: 'Śliwkowy Fiolet',
+      lavender: 'Lawenda',
+      champagne: 'Szampan',
     },
     paperPatterns: {
       'sage-gingham': 'Szałwiowa Kratka',
@@ -583,6 +640,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       gold: 'Złoto Płatkowe',
       ink: 'Atrament',
       rose: 'Różany',
+      plum: 'Śliwkowy Fiolet',
     },
     borderElements: {
       'holly-berries': 'Ostrokrzew i Jagody',
@@ -592,11 +650,27 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       'pine-sprigs': 'Gałązki Sosny',
       none: 'Czysta Obramówka',
     },
+    skirtColors: {
+      blush: 'Pudrowy Róż',
+      'cream-gold': 'Krem & Złoto',
+      crimson: 'Karmin',
+      sage: 'Szałwia',
+      plum: 'Śliwkowy Fiolet',
+      lavender: 'Lawenda',
+    },
+    giftColors: {
+      'classic-rose': 'Róż & Karmin',
+      'gold-ivory': 'Złoto & Krem',
+      'plum-lavender': 'Fiolet & Lawenda',
+      'sage-gold': 'Szałwia & Złoto',
+      'crimson-forest': 'Karmin & Jodła',
+      'midnight-gold': 'Granat & Złoto',
+    },
     sampleDedications: [
       'Wesołych Świąt pełnych ciepła, światła i bliskich serc.',
       'Niech te Święta przyniosą spokój, zachwyt i najpiękniejsze wspomnienia.',
       'Magicznych Świąt Bożego Narodzenia oraz pomyślności w Nowym Roku.',
-      'merry & bright - najcieplejsze życzenia prosto z serca.',
+      'merry & bright · najcieplejsze życzenia prosto z serca.',
     ],
     defaultSignature: 'Z najcieplejszymi życzeniami',
   },

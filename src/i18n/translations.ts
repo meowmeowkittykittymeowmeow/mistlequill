@@ -149,7 +149,7 @@ export interface Translations {
 export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     brand: 'Mistlequill',
-    docTitle: 'Mistlequill | Watercolor & Ink Christmas Card Maker',
+    docTitle: 'Mistlequill | Free Christmas Card Maker & Generator',
     nav: {
       inspirations: 'Inspirations',
       studio: 'Studio',
@@ -413,7 +413,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
 
   pl: {
     brand: 'Mistlequill',
-    docTitle: 'Mistlequill | Kreator Kartek Świątecznych',
+    docTitle: 'Mistlequill | Darmowy Generator Kartek Świątecznych',
     nav: {
       inspirations: 'Inspiracje',
       studio: 'Kreator',

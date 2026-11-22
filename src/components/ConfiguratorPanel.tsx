@@ -19,7 +19,9 @@ import {
   FRAME_STYLES,
   GARLAND_COLORS,
   GARLAND_STYLES,
+  GIFT_COLORS,
   PAPER_PATTERNS,
+  SKIRT_COLORS,
   TOPPER_COLORS,
   TOPPER_SHAPES,
   TREE_COLORS,
@@ -186,60 +188,213 @@ export function ConfiguratorPanel({
               <span className="block text-xs font-medium uppercase tracking-wider text-[#5A5048]">
                 {t.configurator.step1.extrasLabel}
               </span>
-              <div className="grid grid-cols-1 gap-2">
-                {[
-                  {
-                    key: 'candles' as const,
-                    title: t.configurator.step1.candlesTitle,
-                    desc: t.configurator.step1.candlesDesc,
-                  },
-                  {
-                    key: 'skirt' as const,
-                    title: t.configurator.step1.skirtTitle,
-                    desc: t.configurator.step1.skirtDesc,
-                  },
-                  {
-                    key: 'gifts' as const,
-                    title: t.configurator.step1.giftsTitle,
-                    desc: t.configurator.step1.giftsDesc,
-                  },
-                ].map((item) => {
-                  const active = config.treeExtras[item.key];
-                  return (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() =>
-                        onChange({
-                          ...config,
-                          treeExtras: {
-                            ...config.treeExtras,
-                            [item.key]: !active,
-                          },
-                        })
-                      }
-                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border transition-colors cursor-pointer ${
-                        active
-                          ? 'border-[#7D1E28]/50 bg-[#FDF9F8]'
-                          : 'border-[#E6DFD3] bg-white hover:border-[#C7BBA9]'
+              <div className="grid grid-cols-1 gap-2.5">
+                {/* Wax Taper Candles */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onChange({
+                      ...config,
+                      treeExtras: {
+                        ...config.treeExtras,
+                        candles: !config.treeExtras.candles,
+                      },
+                    })
+                  }
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border transition-colors cursor-pointer ${
+                    config.treeExtras.candles
+                      ? 'border-[#7D1E28]/50 bg-[#FDF9F8]'
+                      : 'border-[#E6DFD3] bg-white hover:border-[#C7BBA9]'
+                  }`}
+                >
+                  <div className="text-left">
+                    <div className="text-sm font-medium text-[#1E1A17]">
+                      {t.configurator.step1.candlesTitle}
+                    </div>
+                    <div className="text-xs text-[#73685E]">
+                      {t.configurator.step1.candlesDesc}
+                    </div>
+                  </div>
+                  <span
+                    className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
+                      config.treeExtras.candles
+                        ? 'bg-[#7D1E28] border-[#7D1E28] text-white'
+                        : 'border-[#C8BDB0] bg-white'
+                    }`}
+                  >
+                    {config.treeExtras.candles && <Check className="w-3.5 h-3.5" />}
+                  </span>
+                </button>
+
+                {/* Scalloped Tree Skirt + Color Picker */}
+                <div
+                  className={`rounded-lg border transition-colors ${
+                    config.treeExtras.skirt
+                      ? 'border-[#7D1E28]/50 bg-[#FDF9F8]'
+                      : 'border-[#E6DFD3] bg-white hover:border-[#C7BBA9]'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onChange({
+                        ...config,
+                        treeExtras: {
+                          ...config.treeExtras,
+                          skirt: !config.treeExtras.skirt,
+                        },
+                      })
+                    }
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 cursor-pointer"
+                  >
+                    <div className="text-left">
+                      <div className="text-sm font-medium text-[#1E1A17]">
+                        {t.configurator.step1.skirtTitle}
+                      </div>
+                      <div className="text-xs text-[#73685E]">
+                        {t.configurator.step1.skirtDesc}
+                      </div>
+                    </div>
+                    <span
+                      className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
+                        config.treeExtras.skirt
+                          ? 'bg-[#7D1E28] border-[#7D1E28] text-white'
+                          : 'border-[#C8BDB0] bg-white'
                       }`}
                     >
-                      <div className="text-left">
-                        <div className="text-sm font-medium text-[#1E1A17]">{item.title}</div>
-                        <div className="text-xs text-[#73685E]">{item.desc}</div>
-                      </div>
-                      <span
-                        className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
-                          active
-                            ? 'bg-[#7D1E28] border-[#7D1E28] text-white'
-                            : 'border-[#C8BDB0] bg-white'
-                        }`}
-                      >
-                        {active && <Check className="w-3.5 h-3.5" />}
+                      {config.treeExtras.skirt && <Check className="w-3.5 h-3.5" />}
+                    </span>
+                  </button>
+
+                  {config.treeExtras.skirt && (
+                    <div className="px-3.5 pb-3 pt-2 border-t border-[#EFE5DF] space-y-1.5">
+                      <span className="block text-[11px] font-medium uppercase tracking-wider text-[#6E6258]">
+                        {t.configurator.step1.skirtColorLabel}
                       </span>
-                    </button>
-                  );
-                })}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                        {SKIRT_COLORS.map((sc) => {
+                          const selected = (config.treeExtras.skirtColor || 'blush') === sc.id;
+                          return (
+                            <button
+                              key={sc.id}
+                              type="button"
+                              onClick={() =>
+                                onChange({
+                                  ...config,
+                                  treeExtras: {
+                                    ...config.treeExtras,
+                                    skirtColor: sc.id,
+                                  },
+                                })
+                              }
+                              className={`flex items-center gap-2 px-2 py-1.5 rounded-md border text-left transition-all cursor-pointer ${
+                                selected
+                                  ? 'border-[#7D1E28] bg-white ring-1 ring-[#7D1E28]'
+                                  : 'border-[#E6DFD3] bg-white/80 hover:border-[#C5B9A7]'
+                              }`}
+                            >
+                              <span
+                                className="w-4 h-4 rounded-full shrink-0 border-2"
+                                style={{
+                                  backgroundColor: sc.fill,
+                                  borderColor: sc.trim,
+                                }}
+                              />
+                              <span className="text-[11px] font-medium text-[#1E1A17] truncate">
+                                {t.skirtColors[sc.id]}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Gift Boxes + Palette Picker */}
+                <div
+                  className={`rounded-lg border transition-colors ${
+                    config.treeExtras.gifts
+                      ? 'border-[#7D1E28]/50 bg-[#FDF9F8]'
+                      : 'border-[#E6DFD3] bg-white hover:border-[#C7BBA9]'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onChange({
+                        ...config,
+                        treeExtras: {
+                          ...config.treeExtras,
+                          gifts: !config.treeExtras.gifts,
+                        },
+                      })
+                    }
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 cursor-pointer"
+                  >
+                    <div className="text-left">
+                      <div className="text-sm font-medium text-[#1E1A17]">
+                        {t.configurator.step1.giftsTitle}
+                      </div>
+                      <div className="text-xs text-[#73685E]">
+                        {t.configurator.step1.giftsDesc}
+                      </div>
+                    </div>
+                    <span
+                      className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
+                        config.treeExtras.gifts
+                          ? 'bg-[#7D1E28] border-[#7D1E28] text-white'
+                          : 'border-[#C8BDB0] bg-white'
+                      }`}
+                    >
+                      {config.treeExtras.gifts && <Check className="w-3.5 h-3.5" />}
+                    </span>
+                  </button>
+
+                  {config.treeExtras.gifts && (
+                    <div className="px-3.5 pb-3 pt-2 border-t border-[#EFE5DF] space-y-1.5">
+                      <span className="block text-[11px] font-medium uppercase tracking-wider text-[#6E6258]">
+                        {t.configurator.step1.giftColorLabel}
+                      </span>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                        {GIFT_COLORS.map((gc) => {
+                          const selected =
+                            (config.treeExtras.giftColor || 'classic-rose') === gc.id;
+                          return (
+                            <button
+                              key={gc.id}
+                              type="button"
+                              onClick={() =>
+                                onChange({
+                                  ...config,
+                                  treeExtras: {
+                                    ...config.treeExtras,
+                                    giftColor: gc.id,
+                                  },
+                                })
+                              }
+                              className={`flex items-center gap-2 px-2 py-1.5 rounded-md border text-left transition-all cursor-pointer ${
+                                selected
+                                  ? 'border-[#7D1E28] bg-white ring-1 ring-[#7D1E28]'
+                                  : 'border-[#E6DFD3] bg-white/80 hover:border-[#C5B9A7]'
+                              }`}
+                            >
+                              <span
+                                className="w-4 h-4 rounded-sm shrink-0 border border-black/15"
+                                style={{
+                                  background: `linear-gradient(135deg, ${gc.box1} 55%, ${gc.ribbonMain} 55%)`,
+                                }}
+                              />
+                              <span className="text-[11px] font-medium text-[#1E1A17] truncate">
+                                {t.giftColors[gc.id]}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -320,7 +475,7 @@ export function ConfiguratorPanel({
                 {t.configurator.step2.colorLabel} ({t.configurator.step2.slotPrefix}{' '}
                 {activeBaubleSlot + 1})
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {BAUBLE_COLORS.map((bc) => {
                   const selected = currentSlot.color === bc.id;
                   return (

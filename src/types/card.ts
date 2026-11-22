@@ -292,7 +292,7 @@ export const SAMPLE_DEDICATIONS: string[] = [
   'Wesołych Świąt pełnych ciepła, światła i bliskich serc.',
   'Niech te Święta przyniosą spokój, zachwyt i najpiękniejsze wspomnienia.',
   'Magicznych Świąt Bożego Narodzenia oraz pomyślności w Nowym Roku.',
-  'merry & bright — najcieplejsze życzenia prosto z serca.',
+  'merry & bright - najcieplejsze życzenia prosto z serca.',
 ];
 
 export interface CardPreset {
@@ -375,7 +375,7 @@ export const CARD_PRESETS: CardPreset[] = [
       frameStyle: 'scalloped-oval',
       frameColor: 'crimson',
       borderElement: 'holly-berries',
-      dedication: 'merry & bright — najcieplejsze życzenia prosto z serca.',
+      dedication: 'merry & bright - najcieplejsze życzenia prosto z serca.',
       signature: '',
       dedicationFont: 'script',
       showKraftEnvelope: true,
